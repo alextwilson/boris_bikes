@@ -1,6 +1,7 @@
 class DockingStation
 
   attr_reader :stored
+
   def initialize
     @stored = []
   end
