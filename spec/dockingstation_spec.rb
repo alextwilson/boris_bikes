@@ -32,7 +32,7 @@ describe DockingStation do
     end
 
     it 'returns a storage full error when storage is not empty' do
-      20.times { docking_station.dock(Bike.new) }
+      DockingStation::DEFAULT_CAPACITY.times { docking_station.dock(Bike.new) }
       expect { docking_station.dock(Bike.new) }.to raise_error("Storage is full")
     end
 

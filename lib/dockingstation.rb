@@ -1,5 +1,7 @@
 class DockingStation
 
+  DEFAULT_CAPACITY = 20
+  
   attr_reader :stored
 
   def initialize
@@ -29,7 +31,7 @@ class DockingStation
   private
 
   def full?
-    if @stored.count >= 20
+    if @stored.count >= DEFAULT_CAPACITY
       true
     else
       false
