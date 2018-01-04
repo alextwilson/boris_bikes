@@ -16,4 +16,8 @@ class DockingStation
     @stored
   end
 
+  def no_bikes
+    raise "There are no bikes" if @stored == nil
+  end
+  
 end
