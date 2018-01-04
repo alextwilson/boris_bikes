@@ -1,11 +1,12 @@
 class DockingStation
 
   attr_reader :stored
-
-  @stored = []
+  def initialize
+    @stored = []
+  end
 
   def release_bike
-    if @stored == nil
+    if @stored.count < 1
         raise "There are no bikes"
     else
       Bike.new
@@ -13,15 +14,15 @@ class DockingStation
   end
 
   def dock(bike)
-    if @stored != nil
+    if @stored.count > 19
       raise "Storage is full"
     else
-      @stored = bike
+      @stored << bike
     end
   end
 
   def check_storage
-    @stored
+    @stored[-1]
   end
 
 end

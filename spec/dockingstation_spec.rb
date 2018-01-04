@@ -28,11 +28,11 @@ describe DockingStation do
     it 'stores bike' do
       bicycle = Bike.new
       docking_station.dock(bicycle)
-      expect(docking_station.stored).to eq bicycle
+      expect(docking_station.stored[-1]).to eq bicycle
     end
 
     it 'returns a storage full error when storage is not empty' do
-      docking_station.dock(Bike.new)
+      20.times { docking_station.dock(Bike.new) }
       expect { docking_station.dock(Bike.new) }.to raise_error("Storage is full")
     end
 
