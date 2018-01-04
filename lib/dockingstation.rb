@@ -7,7 +7,7 @@ class DockingStation
   end
 
   def release_bike
-    if @stored.count < 1
+    if empty?
         raise "There are no bikes"
     else
       Bike.new
@@ -15,7 +15,7 @@ class DockingStation
   end
 
   def dock(bike)
-    if @stored.count > 19
+    if full?
       raise "Storage is full"
     else
       @stored << bike
@@ -24,6 +24,20 @@ class DockingStation
 
   def check_storage
     @stored[-1]
+  end
+
+  private
+
+  def full?
+    if @stored.count >= 20
+      true
+    else
+      false
+    end
+  end
+
+  def empty?
+    @stored.empty?
   end
 
 end
