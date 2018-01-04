@@ -5,23 +5,23 @@ class DockingStation
   @stored = []
 
   def release_bike
-    Bike.new
+    if @stored == nil
+        raise "There are no bikes"
+    else
+      Bike.new
+    end
   end
 
   def dock(bike)
-    @stored = bike
+    if @stored != nil
+      raise "Storage is full"
+    else
+      @stored = bike
+    end
   end
 
   def check_storage
     @stored
-  end
-
-  def no_bikes
-    raise "There are no bikes" if @stored == nil
-  end
-
-  def storage_full
-    raise "Storage is full" if @stored != nil
   end
 
 end
