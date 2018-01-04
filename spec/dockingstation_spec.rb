@@ -38,7 +38,16 @@ describe DockingStation do
   describe '#no_bikes' do
 
     it 'returns error when storage is empty' do
-      expect {docking_station.no_bikes}.to raise_error
+      expect { docking_station.no_bikes }.to raise_error
+    end
+
+  end
+
+  describe '#storage_full' do
+
+    it 'returns a storage full error when storage is not empty' do
+      docking_station.dock(bike)
+      expect { docking_station.storage_full }.to raise_error("Storage is full")
     end
 
   end

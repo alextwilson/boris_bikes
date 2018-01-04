@@ -17,8 +17,11 @@ class DockingStation
   end
 
   def no_bikes
-    
     raise "There are no bikes" if @stored == nil
+  end
+
+  def storage_full
+    raise "Storage is full" if @stored != nil
   end
 
 end
