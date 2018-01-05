@@ -46,6 +46,18 @@ describe DockingStation do
       expect { docking_station.dock(Bike.new) }.to raise_error("Storage is full")
     end
 
+    it 'reports a broken bike' do
+      bike = Bike.new
+      docking_station.dock(bike, 'broken')
+      expect(bike.working?).to eq false
+    end
+
+    it 'checks report worked in storage' do
+      bike = Bike.new
+      docking_station.dock(bike, 'broken')
+      expect(docking_station.check_storage.working?).to eq false
+    end
+
   end
 
   describe '#check_storage' do

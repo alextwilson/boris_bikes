@@ -17,10 +17,11 @@ class DockingStation
     end
   end
 
-  def dock(bike)
+  def dock(bike, condition = 'working')
     if full?
       raise "Storage is full"
     else
+      bike.set_condition(condition) 
       @stored << bike
     end
   end
