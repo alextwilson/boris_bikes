@@ -5,6 +5,16 @@ describe DockingStation do
   subject(:docking_station) {DockingStation.new}
   subject(:bike) {docking_station.release_bike}
 
+  it 'has a default capacity of 20' do
+    station = DockingStation.new
+    expect(station.capacity).to eq 20
+  end
+
+  it 'sets capacity as an argument' do
+    station = DockingStation.new(25)
+    expect(station.capacity).to eq 25
+  end
+
   describe '#release_bike' do
 
     it 'returns a bike' do
