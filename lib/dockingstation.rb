@@ -13,7 +13,7 @@ class DockingStation
     if empty?
         raise "There are no bikes"
     else
-      Bike.new
+      @stored.pop
     end
   end
 
@@ -21,7 +21,7 @@ class DockingStation
     if full?
       raise "Storage is full"
     else
-      bike.set_condition(condition) 
+      bike.set_condition(condition)
       @stored << bike
     end
   end
